@@ -29,60 +29,134 @@ namespace Findler
             this.InitializeComponent();
         }
 
-        private ObservableCollection<Curso> data;
-        public ObservableCollection<Curso> Data
+        private ObservableCollection<MenuItem> menu;
+        public ObservableCollection<MenuItem> Menu
         {
             get
             {
-                if(data == null)
+                if (menu == null)
                 {
-                    data = new ObservableCollection<Curso>();
-                    Curso c1 = new Curso()
+                    menu = new ObservableCollection<MenuItem>();
+                    MenuItem opc1 = new MenuItem()
                     {
-                        Nombre = "Android Basico",
-                        Lenguaje = "Java",
-                        Framework = "AndroidStudio",
-                        Duracion = "40 horas",
-                        Nivel = "Principiante",
-                        Requerimientos = "Bases en java",
-                        Valor = "Gratis",
-                        Certificado = "No"
+                        Icon = "Accept",
+                        Label = "Nuevos"
+                    };
+                    MenuItem opc2 = new MenuItem()
+                    {
+                        Icon = "Like",
+                        Label = "Tendencias"
+                    };
+                    MenuItem opc3 = new MenuItem()
+                    {
+                        Icon = "Library",
+                        Label = "Categorias"
+                    };
+                    MenuItem opc4 = new MenuItem()
+                    {
+                        Icon = "Favorite",
+                        Label = "Mis cursos"
+                    };
+                    MenuItem opc5 = new MenuItem()
+                    {
+                        Icon = "Setting",
+                        Label = "Configuracion"
+                    };
+                    MenuItem opc6 = new MenuItem()
+                    {
+                        Icon = "Link",
+                        Label = "Quiero aparecer en findler"
                     };
 
-                    Curso c2 = new Curso()
-                    {
-                        Nombre = "Ruby on Rails",
-                        Lenguaje = "Ruby",
-                        Framework = "Rails",
-                        Duracion = "60 horas",
-                        Nivel = "Avanzado",
-                        Requerimientos = "Ruby basico",
-                        Valor = "USD 99.99",
-                        Certificado = "Si"
-                    };
+                    menu.Add(opc1);
+                    menu.Add(opc2);
+                    menu.Add(opc3);
+                    menu.Add(opc4);
+                    menu.Add(opc5);
+                    menu.Add(opc6);
 
-                    Curso c3 = new Curso()
-                    {
-                        Nombre = "Desarrollo web",
-                        Lenguaje = "PHP",
-                        Framework = "Laravel",
-                        Duracion = "60 horas",
-                        Nivel = "Intermedio",
-                        Requerimientos = "N/A",
-                        Valor = "USD 39.99",
-                        Certificado = "Si"
-                    };
-
-                    data.Add(c1);
-                    data.Add(c2);
-                    data.Add(c3);
                 }
-                return data;
+                return menu;
             }
-            set
+            set { menu = value; }
+        }
+
+        private void clickMenu(object sender, RoutedEventArgs e)
+        {
+            split.IsPaneOpen = !split.IsPaneOpen;
+        }
+
+        private void itemSelected(object sender, SelectionChangedEventArgs e)
+        {
+            switch (list.SelectedIndex)
             {
-                data = value;
+                case 0:
+                    contenido.Navigate(typeof(ContentPage));
+                    split.IsPaneOpen = !split.IsPaneOpen;
+                    break;
             }
         }
+
+        //private ObservableCollection<Curso> data;
+        //public ObservableCollection<Curso> Data
+        //{
+        //    get
+        //    {
+        //        if(data == null)
+        //        {
+        //            data = new ObservableCollection<Curso>();
+        //            Curso c1 = new Curso()
+        //            {
+        //                Nombre = "Android Basico",
+        //                Lenguaje = "Java",
+        //                Framework = "AndroidStudio",
+        //                Duracion = "40 horas",
+        //                Nivel = "Principiante",
+        //                Requerimientos = "Bases en java",
+        //                Valor = "Gratis",
+        //                Certificado = "No",
+        //                Imagen = "http://1.bp.blogspot.com/-UGrENgc-ec8/VIJsFPD19aI/AAAAAAAABBk/ICFczO1O6mU/s1000/studio-logo.png",
+        //                Categoria = "Gratis"
+        //            };
+
+        //            Curso c2 = new Curso()
+        //            {
+        //                Nombre = "Ruby on Rails",
+        //                Lenguaje = "Ruby",
+        //                Framework = "Rails",
+        //                Duracion = "60 horas",
+        //                Nivel = "Avanzado",
+        //                Requerimientos = "Ruby basico",
+        //                Valor = "USD 99.99",
+        //                Certificado = "Si",
+        //                Imagen = "http://programacion.net/files/article/20151023121029_rubyrails.png",
+        //                Categoria = "Gratis"
+        //            };
+
+        //            Curso c3 = new Curso()
+        //            {
+        //                Nombre = "Desarrollo web",
+        //                Lenguaje = "PHP",
+        //                Framework = "Laravel",
+        //                Duracion = "60 horas",
+        //                Nivel = "Intermedio",
+        //                Requerimientos = "N/A",
+        //                Valor = "USD 39.99",
+        //                Certificado = "Si",
+        //                Imagen = "http://danielmlozano.com/wp-content/uploads/2016/01/laravel-2.jpg",
+        //                Categoria = "Pago"
+        //            };
+
+        //            data.Add(c1);
+        //            data.Add(c2);
+        //            data.Add(c3);
+        //        }
+        //        return data;
+        //    }
+        //    set
+        //    {
+        //        data = value;
+        //    }
+        //}
     }
 }

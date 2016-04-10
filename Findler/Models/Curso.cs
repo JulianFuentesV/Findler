@@ -16,5 +16,7 @@ namespace Findler.Models
         public string Requerimientos { get; set; }
         public string Valor { get; set; }
         public string Certificado { get; set; }
+        public string Imagen { get; set; }
+        public string Categoria { get; set; }
     }
 }

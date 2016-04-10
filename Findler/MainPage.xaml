@@ -8,74 +8,40 @@
     xmlns:models="using:Findler.Models"
     mc:Ignorable="d">
 
-    <Grid Padding="10" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.ColumnSpan="2">
-                <TextBlock Text="Findler" Style="{StaticResource TitleTextBlockStyle}"/>
-                <TextBlock HorizontalAlignment="Center" Text="Cursos"
-                            Style="{StaticResource HeaderTextBlockStyle}"/>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Width="40" Height="40" Click="clickMenu" Grid.Row="0"
+                Background="#333333">
+            <StackPanel>
+                <Rectangle Width="30" Height="1" Fill="White" Margin=" 0 0 0 5"/>
+                <Rectangle Width="30" Height="1" Fill="White" Margin=" 0 0 0 5"/>
+                <Rectangle Width="30" Height="1" Fill="White"/>
             </StackPanel>
-            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Vertical">
-                <TextBlock Text="Populares" Style="{StaticResource TitleTextBlockStyle}"/>
-                <FlipView ItemsSource="{x:Bind Data}" Height="100px" Margin="0 0 20 0" Padding="10">
-                    <FlipView.ItemTemplate>
-                        <DataTemplate x:DataType="models:Curso">
-                            <StackPanel>
-                                <TextBlock Text="{Binding Nombre}" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Nivel}"/>
-                                <TextBlock Text="{Binding Valor}"/>
+        </Button>
+        <SplitView x:Name="split" IsPaneOpen="False"
+                   DisplayMode="Overlay"
+                   CompactPaneLength="40" Grid.Row="1">
+            <SplitView.Content>
+                <Frame x:Name="contenido"/>
+            </SplitView.Content>
+            <SplitView.Pane>
+                <ListBox x:Name="list" Grid.Row="1" Background="#333333" ItemsSource="{x:Bind Menu}"
+                                Padding="-12 0 0 0" SelectionChanged="itemSelected">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:DataType="models:MenuItem">
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="{x:Bind Icon}" Foreground="#ffffff"
+                                                Width="40" Height="40"/>
+                                <TextBlock Text="{x:Bind Label}" Foreground="#ffffff"
+                                                VerticalAlignment="Center"/>
                             </StackPanel>
                         </DataTemplate>
-                    </FlipView.ItemTemplate>
-                </FlipView>
-            </StackPanel>
-            <!--<StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal"
-                        VerticalAlignment="Bottom">
-                <Ellipse Fill="DarkViolet" Height="100px" Width="100px" HorizontalAlignment="Left"
-                            Margin="5"/>
-                <Ellipse Fill="DarkViolet" Height="100px" Width="100px" HorizontalAlignment="Left"
-                            Margin="5"/>
-                <Ellipse Fill="DarkViolet" Height="100px" Width="100px" HorizontalAlignment="Left"
-                            Margin="5"/>
-                <Ellipse Fill="DarkViolet" Height="100px" Width="100px" HorizontalAlignment="Left"
-                            Margin="5"/>
-            </StackPanel>-->
-            <TextBlock Text="Gratuitos" Style="{StaticResource TitleTextBlockStyle}"
-                            VerticalAlignment="Top" Grid.Row="2"/>
-            <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal"
-                        VerticalAlignment="Bottom">
-                <Ellipse Fill="DarkCyan" Height="100px" Width="100px" HorizontalAlignment="Left"
-                            Margin="5"/>
-                <Ellipse Fill="DarkCyan" Height="100px" Width="100px" HorizontalAlignment="Left"
-                            Margin="5"/>
-                <Ellipse Fill="DarkCyan" Height="100px" Width="100px" HorizontalAlignment="Left"
-                            Margin="5"/>
-                <Ellipse Fill="DarkCyan" Height="100px" Width="100px" HorizontalAlignment="Left"
-                            Margin="5"/>
-            </StackPanel>
-            <TextBlock Text="Nuevos" Style="{StaticResource TitleTextBlockStyle}"
-                            VerticalAlignment="Top" Grid.Row="3"/>
-            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal"
-                        VerticalAlignment="Bottom">
-                <Ellipse Fill="Chocolate" Height="100px" Width="100px" HorizontalAlignment="Left"
-                            Margin="5"/>
-                <Ellipse Fill="Chocolate" Height="100px" Width="100px" HorizontalAlignment="Left"
-                            Margin="5"/>
-                <Ellipse Fill="Chocolate" Height="100px" Width="100px" HorizontalAlignment="Left"
-                            Margin="5"/>
-                <Ellipse Fill="Chocolate" Height="100px" Width="100px" HorizontalAlignment="Left"
-                            Margin="5"/>
-            </StackPanel>
-        </Grid>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </SplitView.Pane>
+        </SplitView>
     </Grid>
 </Page>

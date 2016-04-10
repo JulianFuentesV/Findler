@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="Findler.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Findler"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0D0D63" Offset="0.2"/>
+                    <GradientStop Color="#FF0068FF" Offset="1.2"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
+                <TextBlock Text="Findler" Style="{StaticResource HeaderTextBlockStyle}"
+                           FontFamily="Segoe Print" RenderTransformOrigin="0,0"
+                           Height="70" VerticalAlignment="Center" Margin="0 15 0 0" 
+                           Foreground="#ffffff" Opacity="0.8">
+                    <TextBlock.RenderTransform>
+                        <CompositeTransform Rotation="-14.036"/>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </StackPanel>
+            <Pivot Grid.Row="1">
+                <PivotItem Header="Log In">
+
+                </PivotItem>
+                <PivotItem Header="Sing Up">
+
+                </PivotItem>
+            </Pivot>
+        </Grid>
+    </Grid>
+</Page>
