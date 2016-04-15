@@ -9,34 +9,37 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid>
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF0D0D63" Offset="0.2"/>
-                    <GradientStop Color="#FF0068FF" Offset="1.2"/>
-                </LinearGradientBrush>
-            </Grid.Background>
             <Grid.RowDefinitions>
-                <RowDefinition Height="120"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
-                <TextBlock Text="Findler" Style="{StaticResource HeaderTextBlockStyle}"
-                           FontFamily="Segoe Print" RenderTransformOrigin="0,0"
-                           Height="70" VerticalAlignment="Center" Margin="0 15 0 0" 
-                           Foreground="#ffffff" Opacity="0.8">
-                    <TextBlock.RenderTransform>
-                        <CompositeTransform Rotation="-14.036"/>
-                    </TextBlock.RenderTransform>
-                </TextBlock>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto                                                                                                                           "/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel HorizontalAlignment="Center" Grid.Row="0"
+                        Padding="20" Grid.ColumnSpan="2">
+                <Image Source="Assets/logoFindler.png" Width="300"/>
             </StackPanel>
-            <Pivot Grid.Row="1">
-                <PivotItem Header="Log In">
-
-                </PivotItem>
-                <PivotItem Header="Sing Up">
-
-                </PivotItem>
-            </Pivot>
+            <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Grid.ColumnSpan="2"
+                        HorizontalAlignment="Stretch">
+                <TextBox PlaceholderText="Correo Electronico" Margin="20 0 20 10"/>
+                <TextBox PlaceholderText="Contraseña" Margin="20 0 20 5"/>
+            </StackPanel>
+            <CheckBox Content="Recordar" Grid.Row="2" VerticalAlignment="Top" Margin="40 20 -10 0"/>
+            <Button Content="Ingresar" HorizontalAlignment="Stretch"
+                    Margin="20" Grid.Row="2" Grid.Column="2"
+                    VerticalAlignment="Top" Style="{StaticResource Btn}"
+                    Click="clickIngresar"/>
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="2">
+                <TextBlock HorizontalAlignment="Center" Text="Aún no tienes una cuenta?"
+                           Style="{StaticResource BaseTextBlockStyle}"/>
+                <Button HorizontalAlignment="Stretch" Content="Crear cuenta"
+                        Margin="20 5 20 20" Style="{StaticResource Btn}" Click="clickRegistro"
+                        />
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

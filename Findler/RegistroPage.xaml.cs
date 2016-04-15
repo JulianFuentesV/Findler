@@ -20,23 +20,17 @@ namespace Findler
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class LoginPage : Page
+    public sealed partial class RegistroPage : Page
     {
-        public LoginPage()
+        public RegistroPage()
         {
             this.InitializeComponent();
         }
 
-        private void clickIngresar(object sender, RoutedEventArgs e)
+        private void clickRegistrar(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(MainPage));
-        }
-
-        private void clickRegistro(object sender, RoutedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(RegistroPage));
         }
     }
 }

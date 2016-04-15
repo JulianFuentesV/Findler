@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="Findler.RegistroPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Findler"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel HorizontalAlignment="Center" Grid.Row="0"
+                        Padding="20" Grid.ColumnSpan="2">
+                <Image Source="Assets/logoFindler.png" Width="300"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <TextBox PlaceholderText="Correo Electronico" Margin="20 0 20 10"/>
+                <TextBox PlaceholderText="Contraseña" Margin="20 0 20 10"/>
+                <TextBox PlaceholderText="Confirmar contraseña" Margin="20 0 20 5"/>
+            </StackPanel>
+            <Button Grid.Row="2" Content="Registrar" HorizontalAlignment="Stretch"
+                    Style="{StaticResource Btn}" Margin="20" Click="clickRegistrar"/>
+        </Grid>
+    </Grid>
+</Page>

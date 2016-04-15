@@ -13,34 +13,41 @@
             <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Width="40" Height="40" Click="clickMenu" Grid.Row="0"
-                Background="#333333">
-            <StackPanel>
-                <Rectangle Width="30" Height="1" Fill="White" Margin=" 0 0 0 5"/>
-                <Rectangle Width="30" Height="1" Fill="White" Margin=" 0 0 0 5"/>
-                <Rectangle Width="30" Height="1" Fill="White"/>
-            </StackPanel>
-        </Button>
-        <SplitView x:Name="split" IsPaneOpen="False"
+        <SplitView x:Name="split" IsPaneOpen="True"
                    DisplayMode="Overlay"
                    CompactPaneLength="40" Grid.Row="1">
             <SplitView.Content>
-                <Frame x:Name="contenido"/>
+                <StackPanel Background="#DDDDDD">
+                    <Button Width="40" Height="40" Click="clickMenu"
+                      Background="#DDDDDD" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"/>
+                    <Frame x:Name="contenido"/>
+                </StackPanel>
             </SplitView.Content>
             <SplitView.Pane>
-                <ListBox x:Name="list" Grid.Row="1" Background="#333333" ItemsSource="{x:Bind Menu}"
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Background="#DDDDDD" Orientation="Horizontal">
+                        <Button Width="40" Height="40" Click="clickMenu" Background="#DDDDDD"
+                                FontFamily="Segoe MDL2 Assets" Content="&#xE700;"/>
+                        <TextBlock Text="MENU" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <ListBox x:Name="list" Grid.Row="1" Background="#DDDDDD" ItemsSource="{x:Bind Menu}"
                                 Padding="-12 0 0 0" SelectionChanged="itemSelected">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate x:DataType="models:MenuItem">
-                            <StackPanel Orientation="Horizontal">
-                                <SymbolIcon Symbol="{x:Bind Icon}" Foreground="#ffffff"
+                        <ListBox.ItemTemplate>
+                            <DataTemplate x:DataType="models:MenuItem">
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="{x:Bind Icon}"
                                                 Width="40" Height="40"/>
-                                <TextBlock Text="{x:Bind Label}" Foreground="#ffffff"
+                                    <TextBlock Text="{x:Bind Label}"
                                                 VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
             </SplitView.Pane>
         </SplitView>
     </Grid>
