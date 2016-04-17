@@ -109,6 +109,10 @@
     </Compile>
     <Compile Include="Models\Curso.cs" />
     <Compile Include="Models\MenuItem.cs" />
+    <Compile Include="Net\HttpConnection.cs" />
+    <Compile Include="NuevosPage.xaml.cs">
+      <DependentUpon>NuevosPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroPage.xaml.cs">
       <DependentUpon>RegistroPage.xaml</DependentUpon>
@@ -147,6 +151,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NuevosPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RegistroPage.xaml">
       <SubType>Designer</SubType>

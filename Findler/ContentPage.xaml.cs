@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Findler.Net;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,33 @@ namespace Findler
     /// </summary>
     public sealed partial class ContentPage : Page
     {
+        HttpConnection con;
+        string url;
+
         public ContentPage()
         {
             this.InitializeComponent();
+            con = new HttpConnection();
+            url = "http://localhost/laravel/findler/public/loginMb";
+            this.Loaded += ContentPage_Loaded;
         }
+
+        private void ContentPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            loadData();
+        }
+
+        public async void loadData()
+        {
+            string rta = await con.requestByGet(url);
+            if (rta == "texto desde controlador")
+            {
+                texto.Text = "ok";
+            } else
+            {
+                texto.Text = "ERROR";
+            }
+        }
+
     }
 }

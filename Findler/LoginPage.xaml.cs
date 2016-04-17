@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Findler.Net;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,21 +23,42 @@ namespace Findler
     /// </summary>
     public sealed partial class LoginPage : Page
     {
+        HttpConnection con;
+        string url;
+
         public LoginPage()
         {
             this.InitializeComponent();
+            con = new HttpConnection();
         }
 
         private void clickIngresar(object sender, RoutedEventArgs e)
         {
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(MainPage));
+            string correo = email.Text;
+            string pass = password.Text;
+            validarLogin(correo, pass);
         }
 
         private void clickRegistro(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(RegistroPage));
+        }
+
+        public async void validarLogin(string correo, string pass)
+        {
+            url = "http://localhost/laravel/findler/public/users/"+correo+"/"+pass;
+            string rta = await con.requestByGet(url);
+            if (rta == "200")
+            {
+                Frame rootFrame = Window.Current.Content as Frame;
+                rootFrame.Navigate(typeof(MainPage));
+            }
+            else
+            {
+                //msj.Text = "Datos incorrectos.";
+                msj.Text = rta;
+            }
         }
     }
 }

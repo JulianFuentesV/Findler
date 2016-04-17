@@ -25,8 +25,12 @@
             </StackPanel>
             <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Grid.ColumnSpan="2"
                         HorizontalAlignment="Stretch">
-                <TextBox PlaceholderText="Correo Electronico" Margin="20 0 20 10"/>
-                <TextBox PlaceholderText="Contraseña" Margin="20 0 20 5"/>
+                <TextBlock x:Name="msj" Style="{StaticResource BaseTextBlockStyle}"
+                           HorizontalAlignment="Center"/>
+                <TextBox PlaceholderText="Correo Electronico" Margin="20 0 20 10"
+                         x:Name="email"/>
+                <TextBox PlaceholderText="Contraseña" Margin="20 0 20 5"
+                         x:Name="password"/>
             </StackPanel>
             <CheckBox Content="Recordar" Grid.Row="2" VerticalAlignment="Top" Margin="40 20 -10 0"/>
             <Button Content="Ingresar" HorizontalAlignment="Stretch"

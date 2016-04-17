@@ -27,6 +27,12 @@ namespace Findler
         public MainPage()
         {
             this.InitializeComponent();
+            this.Loaded += MainPage_Loaded;
+        }
+
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            contenido.Navigate(typeof(NuevosPage));
         }
 
         private ObservableCollection<MenuItem> menu;
@@ -91,6 +97,11 @@ namespace Findler
             switch (list.SelectedIndex)
             {
                 case 0:
+                    contenido.Navigate(typeof(NuevosPage));
+                    split.IsPaneOpen = !split.IsPaneOpen;
+                    break;
+
+                case 1:
                     contenido.Navigate(typeof(ContentPage));
                     split.IsPaneOpen = !split.IsPaneOpen;
                     break;
