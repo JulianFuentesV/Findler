@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -30,6 +31,7 @@ namespace Findler
         {
             this.InitializeComponent();
             con = new HttpConnection();
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
 
         private void clickIngresar(object sender, RoutedEventArgs e)
@@ -56,8 +58,8 @@ namespace Findler
             }
             else
             {
-                //msj.Text = "Datos incorrectos.";
-                msj.Text = rta;
+                msj.Text = "Datos incorrectos.";
+                //msj.Text = rta;
             }
         }
     }
