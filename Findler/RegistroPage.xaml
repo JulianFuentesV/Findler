@@ -21,8 +21,8 @@
             <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center">
                 <TextBlock x:Name="msj" HorizontalAlignment="Center"/>
                 <TextBox PlaceholderText="Correo Electronico" Margin="20 0 20 10" x:Name="email"/>
-                <TextBox PlaceholderText="Contraseña" Margin="20 0 20 10" x:Name="pass"/>
-                <TextBox PlaceholderText="Confirmar contraseña" Margin="20 0 20 5"/>
+                <PasswordBox PlaceholderText="Contraseña" Margin="20 0 20 10" x:Name="pass"/>
+                <PasswordBox PlaceholderText="Confirmar contraseña" Margin="20 0 20 5"/>
             </StackPanel>
             <Button Grid.Row="2" Content="Registrar" HorizontalAlignment="Stretch"
                     Style="{StaticResource Btn}" Margin="20" Click="clickRegistrar"/>

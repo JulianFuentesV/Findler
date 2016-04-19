@@ -37,7 +37,7 @@ namespace Findler
         private void clickIngresar(object sender, RoutedEventArgs e)
         {
             string correo = email.Text;
-            string pass = password.Text;
+            string pass = password.Password;
             validarLogin(correo, pass);
         }
 

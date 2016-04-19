@@ -35,7 +35,7 @@ namespace Findler
         private void clickRegistrar(object sender, RoutedEventArgs e)
         {
             string correo = email.Text;
-            string password = pass.Text;
+            string password = pass.Password;
             registrar(correo, password);
         }
 

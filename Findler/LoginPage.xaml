@@ -29,7 +29,7 @@
                            HorizontalAlignment="Center"/>
                 <TextBox PlaceholderText="Correo Electronico" Margin="20 0 20 10"
                          x:Name="email"/>
-                <TextBox PlaceholderText="Contraseña" Margin="20 0 20 5"
+                <PasswordBox PlaceholderText="Contraseña" Margin="20 0 20 5"
                          x:Name="password"/>
             </StackPanel>
             <CheckBox Content="Recordar" Grid.Row="2" VerticalAlignment="Top" Margin="40 20 -10 0"/>

@@ -14,9 +14,11 @@ namespace Findler.Models
         public string Duracion { get; set; }
         public string Nivel { get; set; }
         public string Requerimientos { get; set; }
-        public string Valor { get; set; }
+        public double Valor { get; set; }
+        public string Moneda { get; set; }
         public string Certificado { get; set; }
         public string Imagen { get; set; }
-        public string Categoria { get; set; }
+        public string Descripcion { get; set; }
+        public double calificacion { get; set; }
     }
 }

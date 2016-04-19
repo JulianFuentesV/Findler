@@ -5,10 +5,26 @@
     xmlns:local="using:Findler"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Findler.Models"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="nuevos" VerticalAlignment="Center" HorizontalAlignment="Center"
-                   FontSize="64"/>
+        <ListBox x:Name="list" ItemsSource="{x:Bind Data}">
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="models:Curso">
+                    <StackPanel>
+                        <Image Height="140" Width="480"
+                               Source="{x:Bind Imagen}"
+                               Stretch="UniformToFill"/>
+                        <TextBlock Text="{x:Bind Nombre}"
+                                   Style="{StaticResource TitleTextBlockStyle}"/>
+                        <TextBlock Text="{x:Bind Lenguaje}"
+                                   Style="{StaticResource CaptionTextBlockStyle}"
+                                   Foreground="DarkCyan"/>
+                        <TextBlock Text="{x:Bind Duracion}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>
