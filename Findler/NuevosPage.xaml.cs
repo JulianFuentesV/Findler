@@ -32,7 +32,6 @@ namespace Findler
 
         public NuevosPage()
         {
-            this.InitializeComponent();
             con = new HttpConnection();
             url = "http://localhost/laravel/findler/public/courses";
             loadCourses();
@@ -80,6 +79,7 @@ namespace Findler
         {
             string rta = await con.requestByGet(url);
             json = JsonArray.Parse(rta);
+            this.InitializeComponent();
         }
     }
 }

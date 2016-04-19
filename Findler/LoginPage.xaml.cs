@@ -43,6 +43,7 @@ namespace Findler
 
         private void clickRegistro(object sender, RoutedEventArgs e)
         {
+            progress.IsActive = true;
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(RegistroPage));
         }
@@ -53,6 +54,7 @@ namespace Findler
             string rta = await con.requestByGet(url);
             if (rta == "200")
             {
+                progress.IsActive = true;
                 Frame rootFrame = Window.Current.Content as Frame;
                 rootFrame.Navigate(typeof(MainPage));
             }

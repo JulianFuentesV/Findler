@@ -15,7 +15,7 @@
                     <StackPanel>
                         <Image Height="140" Width="480"
                                Source="{x:Bind Imagen}"
-                               Stretch="UniformToFill"/>
+                               Stretch="Fill"/>
                         <TextBlock Text="{x:Bind Nombre}"
                                    Style="{StaticResource TitleTextBlockStyle}"/>
                         <TextBlock Text="{x:Bind Lenguaje}"
