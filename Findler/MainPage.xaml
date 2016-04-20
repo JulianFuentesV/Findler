@@ -17,9 +17,9 @@
                    DisplayMode="Overlay"
                    CompactPaneLength="40" Grid.Row="1">
             <SplitView.Content>
-                <StackPanel Background="#DDDDDD">
+                <StackPanel Background="#FFFFFF">
                     <Button Width="40" Height="40" Click="clickMenu"
-                      Background="#DDDDDD" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"/>
+                      Background="#FFFFFF" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"/>
                     <Frame x:Name="contenido"/>
                 </StackPanel>
             </SplitView.Content>
@@ -29,7 +29,7 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <StackPanel Background="#FFFFFF" Orientation="Horizontal">
+                    <StackPanel Background="#FAFAFA" Orientation="Horizontal">
                         <Button Width="40" Height="40" Click="clickMenu" Background="#FFFFFF"
                                 FontFamily="Segoe MDL2 Assets" Content="&#xE700;"/>
                         <TextBlock Text="MENU" VerticalAlignment="Top" Margin="10"/>
@@ -39,7 +39,7 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate x:DataType="models:MenuItem">
                                 <StackPanel Orientation="Horizontal">
-                                    <Rectangle Width="2" Height="40" Fill="Blue"/>
+                                    <!--<Rectangle Width="2" Height="40" Fill="Blue"/>-->
                                     <SymbolIcon Symbol="{x:Bind Icon}"
                                                 Width="40" Height="40"/>
                                     <TextBlock Text="{x:Bind Label}"

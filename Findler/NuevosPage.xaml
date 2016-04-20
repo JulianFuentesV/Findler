@@ -9,22 +9,34 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListBox x:Name="list" ItemsSource="{x:Bind Data}">
-            <ListBox.ItemTemplate>
-                <DataTemplate x:DataType="models:Curso">
-                    <StackPanel>
-                        <Image Height="140" Width="480"
-                               Source="{x:Bind Imagen}"
-                               Stretch="Fill"/>
-                        <TextBlock Text="{x:Bind Nombre}"
-                                   Style="{StaticResource TitleTextBlockStyle}"/>
-                        <TextBlock Text="{x:Bind Lenguaje}"
-                                   Style="{StaticResource CaptionTextBlockStyle}"
-                                   Foreground="DarkCyan"/>
-                        <TextBlock Text="{x:Bind Duracion}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <StackPanel>
+            <TextBlock Text="Novedades" HorizontalAlignment="Center"
+                       Style="{StaticResource HeaderTextBlockStyle}"
+                       VerticalAlignment="Top"/>
+            <Rectangle Height="1" HorizontalAlignment="Stretch" Margin="0 0 0 20"
+                       Fill="#0091EA"/>
+            <GridView x:Name="list" ItemsSource="{x:Bind Data}" Padding="20 0 20 0">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Curso">
+                        <StackPanel Width="220">
+                            <Image Height="160" Width="160"
+                                   Source="{x:Bind Imagen}"
+                                   Stretch="Uniform"/>
+                            <TextBlock Text="{x:Bind Nombre}" Padding="20 0 0 0"
+                                       Style="{StaticResource FlyoutPickerTitleTextBlockStyle}"/>
+                            <TextBlock Text="{x:Bind Lenguaje}" Padding="20 0 0 0"
+                                       Style="{StaticResource CaptionTextBlockStyle}"
+                                       Foreground="DarkCyan"/>
+                            <StackPanel Orientation="Horizontal" Padding="20 0 0 0">
+                                <TextBlock Text="{x:Bind Valor}"
+                                           Style="{StaticResource CaptionTextBlockStyle}"/>
+                                <TextBlock Text="{x:Bind Moneda}" Margin="4 0 0 0"
+                                           Style="{StaticResource CaptionTextBlockStyle}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </StackPanel>
     </Grid>
 </Page>

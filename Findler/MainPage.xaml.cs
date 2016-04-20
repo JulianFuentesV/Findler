@@ -46,7 +46,7 @@ namespace Findler
                     menu = new ObservableCollection<MenuItem>();
                     MenuItem opc1 = new MenuItem()
                     {
-                        Icon = "Accept",
+                        Icon = "Pictures",
                         Label = "Nuevos"
                     };
                     MenuItem opc2 = new MenuItem()
@@ -61,7 +61,7 @@ namespace Findler
                     };
                     MenuItem opc4 = new MenuItem()
                     {
-                        Icon = "Favorite",
+                        Icon = "OutlineStar",
                         Label = "Mis cursos"
                     };
                     MenuItem opc5 = new MenuItem()
