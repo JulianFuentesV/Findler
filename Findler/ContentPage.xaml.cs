@@ -1,4 +1,5 @@
-﻿using Findler.Net;
+﻿using Findler.Models;
+using Findler.Net;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -23,33 +25,25 @@ namespace Findler
     /// </summary>
     public sealed partial class ContentPage : Page
     {
-        HttpConnection con;
-        string url;
-
         public ContentPage()
         {
             this.InitializeComponent();
-            con = new HttpConnection();
-            url = "http://localhost/laravel/findler/public/loginMb";
-            this.Loaded += ContentPage_Loaded;
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            SystemNavigationManager.GetForCurrentView().BackRequested += Main_BackRequested;
         }
 
-        private void ContentPage_Loaded(object sender, RoutedEventArgs e)
+        private void Main_BackRequested(object sender, BackRequestedEventArgs e)
         {
-            loadData();
-        }
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame.CanGoBack && e.Handled == false) { e.Handled = true; rootFrame.GoBack(); } }
 
-        public async void loadData()
+        public Curso curso { get; set; }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            string rta = await con.requestByGet(url);
-            if (rta == "texto desde controlador")
-            {
-                texto.Text = "ok";
-            } else
-            {
-                texto.Text = "ERROR";
-            }
-        }
+            Curso c = e.Parameter as Curso;
+            curso = c;
 
+        }
     }
 }

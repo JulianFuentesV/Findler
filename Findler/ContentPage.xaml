@@ -8,6 +8,38 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="texto" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <StackPanel DataContext="{x:Bind curso}">
+            <Image Height="240" Stretch="Uniform"
+                   Source="{Binding Imagen}"/>
+            <TextBlock Style="{StaticResource TitleTextBlockStyle}"
+                       Text="{Binding Nombre}"
+                       Margin="10"/>
+            <TextBlock Style="{StaticResource BodyTextBlockStyle}"
+                       Text="{Binding Lenguaje}"
+                       Foreground="DarkCyan"
+                       Margin="10 0 10 0"/>
+            <TextBlock Style="{StaticResource BodyTextBlockStyle}"
+                       Text="{Binding Framework}"
+                       Margin="10 0 10 0"/>
+            <TextBlock Style="{StaticResource BodyTextBlockStyle}"
+                       Text="{Binding Duracion}"
+                       Margin="10 0 10 0"/>
+            <TextBlock Style="{StaticResource BodyTextBlockStyle}"
+                       Text="{Binding Nivel}"
+                       Margin="10 0 10 0"/>
+            <TextBlock Style="{StaticResource BodyTextBlockStyle}"
+                       Text="{Binding Requerimientos}"
+                       Margin="10 0 10 0"/>
+            <StackPanel Orientation="Horizontal" Margin="10 0 10 0">
+                <TextBlock Style="{StaticResource BodyTextBlockStyle}"
+                       Text="{Binding Valor}"/>
+                <TextBlock Style="{StaticResource BodyTextBlockStyle}"
+                       Text="{Binding Moneda}"
+                       Margin="10 0 0 0"/>
+            </StackPanel>
+            <TextBlock Style="{StaticResource BodyTextBlockStyle}"
+                       Text="{Binding Certificado}"
+                       Margin="10 0 10 0"/>
+        </StackPanel>
     </Grid>
 </Page>

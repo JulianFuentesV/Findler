@@ -9,6 +9,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Data.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -28,12 +29,21 @@ namespace Findler
     {
         HttpConnection con;
         string url;
+        string title;
+        string[] u = new string[2];
         JsonArray json;
 
         public NuevosPage()
         {
             con = new HttpConnection();
-            url = "http://localhost/laravel/findler/public/courses";
+            
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            u = e.Parameter as string[];
+            url = u[0];
+            title = u[1];
             loadCourses();
         }
 
@@ -80,6 +90,16 @@ namespace Findler
             string rta = await con.requestByGet(url);
             json = JsonArray.Parse(rta);
             this.InitializeComponent();
+            titulo.Text = title;
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+
+        }
+
+        private void selected(object sender, SelectionChangedEventArgs e)
+        {
+            Curso c = data.ElementAt(list.SelectedIndex);
+            Frame root = Window.Current.Content as Frame;
+            root.Navigate(typeof(ContentPage), c);
         }
     }
 }

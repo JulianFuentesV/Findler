@@ -25,6 +25,10 @@ namespace Findler
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        string url;
+        string title;
+        string[] datos;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -33,7 +37,10 @@ namespace Findler
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            contenido.Navigate(typeof(NuevosPage));
+            url = "http://localhost/laravel/findler/public/courses";
+            title = "Novedades";
+            datos = new string[2] { url, title};
+            contenido.Navigate(typeof(NuevosPage), datos);
         }
 
         private ObservableCollection<MenuItem> menu;
@@ -98,12 +105,18 @@ namespace Findler
             switch (list.SelectedIndex)
             {
                 case 0:
-                    contenido.Navigate(typeof(NuevosPage));
+                    url = "http://localhost/laravel/findler/public/courses";
+                    title = "Novedades";
+                    datos = new string[2] { url, title };
+                    contenido.Navigate(typeof(NuevosPage), datos);
                     split.IsPaneOpen = !split.IsPaneOpen;
                     break;
 
                 case 1:
-                    contenido.Navigate(typeof(ContentPage));
+                    url = "http://localhost/laravel/findler/public/trends";
+                    title = "Tendencias";
+                    datos = new string[2] { url, title };
+                    contenido.Navigate(typeof(NuevosPage), datos);
                     split.IsPaneOpen = !split.IsPaneOpen;
                     break;
             }

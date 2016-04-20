@@ -10,12 +10,12 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
-            <TextBlock Text="Novedades" HorizontalAlignment="Center"
+            <TextBlock x:Name="titulo" HorizontalAlignment="Center"
                        Style="{StaticResource HeaderTextBlockStyle}"
                        VerticalAlignment="Top"/>
             <Rectangle Height="1" HorizontalAlignment="Stretch" Margin="0 0 0 20"
                        Fill="#0091EA"/>
-            <GridView x:Name="list" ItemsSource="{x:Bind Data}" Padding="20 0 20 0">
+            <GridView x:Name="list" ItemsSource="{x:Bind Data}" Padding="20 0 20 0" SelectionChanged="selected">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="models:Curso">
                         <StackPanel Width="220">
