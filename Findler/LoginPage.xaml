@@ -33,7 +33,8 @@
                 <PasswordBox PlaceholderText="Contraseña" Margin="20 0 20 5"
                          x:Name="password"/>
             </StackPanel>
-            <CheckBox Content="Recordar" Grid.Row="2" VerticalAlignment="Top" Margin="40 20 -10 0"/>
+            <CheckBox x:Name="recordar" Content="Recordar" Grid.Row="2"
+                      VerticalAlignment="Top" Margin="40 20 -10 0"/>
             <Button Content="Ingresar" HorizontalAlignment="Stretch"
                     Margin="20" Grid.Row="2" Grid.Column="2"
                     VerticalAlignment="Top" Style="{StaticResource Btn}"

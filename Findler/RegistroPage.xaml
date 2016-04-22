@@ -12,20 +12,21 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <StackPanel HorizontalAlignment="Center" Grid.Row="0"
                         Padding="20" Grid.ColumnSpan="2">
                 <Image Source="Assets/logoFindler.png" Width="300"/>
             </StackPanel>
-            <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
                 <TextBlock x:Name="msj" HorizontalAlignment="Center"/>
                 <TextBox PlaceholderText="Correo Electronico" Margin="20 0 20 10" x:Name="email"/>
                 <PasswordBox PlaceholderText="Contraseña" Margin="20 0 20 10" x:Name="pass"/>
                 <PasswordBox PlaceholderText="Confirmar contraseña" Margin="20 0 20 5"/>
             </StackPanel>
             <Button Grid.Row="2" Content="Registrar" HorizontalAlignment="Stretch"
-                    Style="{StaticResource Btn}" Margin="20" Click="clickRegistrar"/>
+                    Style="{StaticResource Btn}" Margin="20" Click="clickRegistrar"
+                    VerticalAlignment="Top"/>
         </Grid>
     </Grid>
 </Page>

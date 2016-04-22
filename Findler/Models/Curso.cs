@@ -19,6 +19,6 @@ namespace Findler.Models
         public string Certificado { get; set; }
         public string Imagen { get; set; }
         public string Descripcion { get; set; }
-        public double calificacion { get; set; }
+        public double Calificacion { get; set; }
     }
 }

@@ -70,7 +70,7 @@ namespace Findler
                         c.Certificado = course["certificado"].GetString();
                         c.Imagen = course["imagen"].GetString();
                         c.Descripcion = course["descripcion"].GetString();
-                        c.calificacion = course["calificacion"].GetNumber();
+                        c.Calificacion = course["calificacion"].GetNumber();
 
                         data.Add(c);
                     }

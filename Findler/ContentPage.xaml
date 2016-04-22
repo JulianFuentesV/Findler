@@ -6,40 +6,58 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+    <ScrollViewer>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel DataContext="{x:Bind curso}">
             <Image Height="240" Stretch="Uniform"
                    Source="{Binding Imagen}"/>
-            <TextBlock Style="{StaticResource TitleTextBlockStyle}"
-                       Text="{Binding Nombre}"
-                       Margin="10"/>
+            <TextBlock Style="{StaticResource HeaderTextBlockStyle}"
+                       Text="{Binding Nombre}" HorizontalAlignment="Center"
+                       Margin="10" Foreground="#1A237E"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <SymbolIcon Symbol="Favorite" Foreground="#FFD4D400" />
+                <TextBlock Style="{StaticResource TitleTextBlockStyle}"
+                           Text="{Binding Calificacion}"
+                           Margin="4 0 0 0"/>
+            </StackPanel>
             <TextBlock Style="{StaticResource BodyTextBlockStyle}"
+                       Text="{Binding Duracion}" HorizontalAlignment="Center"
+                       Margin="10 0 10 0"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Style="{StaticResource BodyTextBlockStyle}"
                        Text="{Binding Lenguaje}"
-                       Foreground="DarkCyan"
-                       Margin="10 0 10 0"/>
-            <TextBlock Style="{StaticResource BodyTextBlockStyle}"
-                       Text="{Binding Framework}"
-                       Margin="10 0 10 0"/>
-            <TextBlock Style="{StaticResource BodyTextBlockStyle}"
-                       Text="{Binding Duracion}"
-                       Margin="10 0 10 0"/>
-            <TextBlock Style="{StaticResource BodyTextBlockStyle}"
-                       Text="{Binding Nivel}"
-                       Margin="10 0 10 0"/>
-            <TextBlock Style="{StaticResource BodyTextBlockStyle}"
-                       Text="{Binding Requerimientos}"
-                       Margin="10 0 10 0"/>
-            <StackPanel Orientation="Horizontal" Margin="10 0 10 0">
+                       Foreground="DarkCyan"/>
+                <TextBlock Text="/" Margin="8 0 8 0" Style="{StaticResource BodyTextBlockStyle}"/>
                 <TextBlock Style="{StaticResource BodyTextBlockStyle}"
                        Text="{Binding Valor}"/>
                 <TextBlock Style="{StaticResource BodyTextBlockStyle}"
                        Text="{Binding Moneda}"
-                       Margin="10 0 0 0"/>
+                       Margin="2 0 0 0"/>
             </StackPanel>
-            <TextBlock Style="{StaticResource BodyTextBlockStyle}"
-                       Text="{Binding Certificado}"
-                       Margin="10 0 10 0"/>
+            <StackPanel Orientation="Horizontal" Margin="20 10 20 5">
+                <TextBlock Text="> Nivel:" Style="{StaticResource BodyTextBlockStyle}"/>
+                <TextBlock Text="{Binding Nivel}" Style="{StaticResource BodyTextBlockStyle}"
+                           Margin="3 0 0 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20 5 20 5">
+                <TextBlock Text="> Framework:" Style="{StaticResource BodyTextBlockStyle}"/>
+                <TextBlock Text="{Binding Framework}" Style="{StaticResource BodyTextBlockStyle}"
+                           Margin="3 0 0 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20 5 20 5">
+                <TextBlock Text="> Certificado:" Style="{StaticResource BodyTextBlockStyle}"/>
+                <TextBlock Text="{Binding Certificado}" Style="{StaticResource BodyTextBlockStyle}"
+                           Margin="3 0 0 0"/>
+            </StackPanel>
+            <TextBlock Text="> Requerimientos:" Style="{StaticResource BodyTextBlockStyle}"
+                       Margin="20 5 20 2"/>
+            <TextBlock Text="{Binding Requerimientos}" Style="{StaticResource BodyTextBlockStyle}"
+                       Margin="40 0 20 0"/>
+            <TextBlock Text="> Descripcion:" Style="{StaticResource BodyTextBlockStyle}"
+                       Margin="20 10 20 2"/>
+            <TextBlock Text="{Binding Descripcion}" Style="{StaticResource BodyTextBlockStyle}"
+                       Margin="40 0 20 0" TextAlignment="Justify"/>
         </StackPanel>
     </Grid>
+    </ScrollViewer>
 </Page>

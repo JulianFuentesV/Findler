@@ -24,6 +24,7 @@
                                    Stretch="Uniform"/>
                             <TextBlock Text="{x:Bind Nombre}" Padding="20 0 0 0"
                                        Style="{StaticResource FlyoutPickerTitleTextBlockStyle}"/>
+                            
                             <TextBlock Text="{x:Bind Lenguaje}" Padding="20 0 0 0"
                                        Style="{StaticResource CaptionTextBlockStyle}"
                                        Foreground="DarkCyan"/>

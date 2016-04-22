@@ -81,6 +81,11 @@ namespace Findler
                         Icon = "Link",
                         Label = "Quiero aparecer en findler"
                     };
+                    MenuItem opc7 = new MenuItem()
+                    {
+                        Icon = "Cancel",
+                        Label = "Cerrar Sesion"
+                    };
 
                     menu.Add(opc1);
                     menu.Add(opc2);
@@ -88,6 +93,7 @@ namespace Findler
                     menu.Add(opc4);
                     menu.Add(opc5);
                     menu.Add(opc6);
+                    menu.Add(opc7);
 
                 }
                 return menu;
@@ -118,6 +124,11 @@ namespace Findler
                     datos = new string[2] { url, title };
                     contenido.Navigate(typeof(NuevosPage), datos);
                     split.IsPaneOpen = !split.IsPaneOpen;
+                    break;
+
+                case 6:
+                    Frame rootFrame = Window.Current.Content as Frame;
+                    rootFrame.Navigate(typeof(LoginPage));
                     break;
             }
         }

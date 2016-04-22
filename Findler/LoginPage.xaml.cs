@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -24,6 +25,7 @@ namespace Findler
     /// </summary>
     public sealed partial class LoginPage : Page
     {
+        ApplicationDataContainer ingreso = ApplicationData.Current.LocalSettings;
         HttpConnection con;
         string url;
 
@@ -32,6 +34,7 @@ namespace Findler
             this.InitializeComponent();
             con = new HttpConnection();
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+            ingreso.Values["logged"] = "no";
         }
 
         private void clickIngresar(object sender, RoutedEventArgs e)
@@ -55,6 +58,11 @@ namespace Findler
             if (rta == "200")
             {
                 progress.IsActive = true;
+                bool check = (bool)recordar.IsChecked;
+                if (check)
+                {
+                    ingreso.Values["logged"] = "ok";
+                }
                 Frame rootFrame = Window.Current.Content as Frame;
                 rootFrame.Navigate(typeof(MainPage));
             }
