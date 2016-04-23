@@ -30,7 +30,8 @@ namespace Findler
         HttpConnection con;
         string url;
         string title;
-        string[] u = new string[2];
+        string back;
+        string[] u = new string[3];
         JsonArray json;
 
         public NuevosPage()
@@ -44,6 +45,7 @@ namespace Findler
             u = e.Parameter as string[];
             url = u[0];
             title = u[1];
+            back = u[2];
             loadCourses();
         }
 
@@ -55,24 +57,30 @@ namespace Findler
                 if (data == null)
                 {
                     data = new ObservableCollection<Curso>();
-                    foreach (JsonValue jsonValue in json)
+                    if (json == null)
                     {
-                        JsonObject course = jsonValue.GetObject();
-                        Curso c = new Curso();
-                        c.Nombre = course["nombre"].GetString();
-                        c.Lenguaje = course["lenguaje"].GetString();
-                        c.Framework = course["framework"].GetString();
-                        c.Duracion = course["duracion"].GetString();
-                        c.Nivel = course["nivel"].GetString();
-                        c.Requerimientos = course["requerimientos"].GetString();
-                        c.Valor = course["valor"].GetNumber();
-                        c.Moneda = course["moneda"].GetString();
-                        c.Certificado = course["certificado"].GetString();
-                        c.Imagen = course["imagen"].GetString();
-                        c.Descripcion = course["descripcion"].GetString();
-                        c.Calificacion = course["calificacion"].GetNumber();
+                        aviso.Text = "No se han encontrado datos.";
+                    } else
+                    {
+                        foreach (JsonValue jsonValue in json)
+                        {
+                            JsonObject course = jsonValue.GetObject();
+                            Curso c = new Curso();
+                            c.Nombre = course["nombre"].GetString();
+                            c.Lenguaje = course["lenguaje"].GetString();
+                            c.Framework = course["framework"].GetString();
+                            c.Duracion = course["duracion"].GetString();
+                            c.Nivel = course["nivel"].GetString();
+                            c.Requerimientos = course["requerimientos"].GetString();
+                            c.Valor = course["valor"].GetNumber();
+                            c.Moneda = course["moneda"].GetString();
+                            c.Certificado = course["certificado"].GetString();
+                            c.Imagen = course["imagen"].GetString();
+                            c.Descripcion = course["descripcion"].GetString();
+                            c.Calificacion = course["calificacion"].GetNumber();
 
-                        data.Add(c);
+                            data.Add(c);
+                        }
                     }
                 }
 
@@ -90,9 +98,24 @@ namespace Findler
             string rta = await con.requestByGet(url);
             json = JsonArray.Parse(rta);
             this.InitializeComponent();
+            if (back == "si")
+            {
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+                SystemNavigationManager.GetForCurrentView().BackRequested += Main_BackRequested;
+            } else
+            {
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+            }
             titulo.Text = title;
-            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+        }
 
+        private void Main_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame.CanGoBack && e.Handled == false)
+            {
+                e.Handled = true; rootFrame.GoBack();
+            }
         }
 
         private void selected(object sender, SelectionChangedEventArgs e)

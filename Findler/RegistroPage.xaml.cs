@@ -58,12 +58,11 @@ namespace Findler
             if (rta == "200")
             {
                 Frame rootFrame = Window.Current.Content as Frame;
-                rootFrame.Navigate(typeof(MainPage));
+                rootFrame.Navigate(typeof(LoginPage));
             }
             else
             {
-                //msj.Text = "Datos incorrectos.";
-                msj.Text = rta;
+                msj.Text = "Datos incorrectos.";
             }
         }
     }

@@ -35,6 +35,7 @@ namespace Findler
             con = new HttpConnection();
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             ingreso.Values["logged"] = "no";
+            ingreso.Values["user"] = "no";
         }
 
         private void clickIngresar(object sender, RoutedEventArgs e)
@@ -63,13 +64,13 @@ namespace Findler
                 {
                     ingreso.Values["logged"] = "ok";
                 }
+                ingreso.Values["user"] = correo;
                 Frame rootFrame = Window.Current.Content as Frame;
                 rootFrame.Navigate(typeof(MainPage));
             }
             else
             {
                 msj.Text = "Datos incorrectos.";
-                //msj.Text = rta;
             }
         }
     }

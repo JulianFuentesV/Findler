@@ -15,6 +15,8 @@
                        VerticalAlignment="Top"/>
             <Rectangle Height="1" HorizontalAlignment="Stretch" Margin="0 0 0 20"
                        Fill="#0091EA"/>
+            <TextBlock x:Name="aviso" Style="{StaticResource CaptionTextBlockStyle}"
+                       HorizontalAlignment="Center"/>
             <GridView x:Name="list" ItemsSource="{x:Bind Data}" Padding="20 0 20 0" SelectionChanged="selected">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="models:Curso">

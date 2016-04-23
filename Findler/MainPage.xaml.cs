@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -39,7 +40,7 @@ namespace Findler
         {
             url = "http://localhost/laravel/findler/public/courses";
             title = "Novedades";
-            datos = new string[2] { url, title};
+            datos = new string[3] { url, title, "no"};
             contenido.Navigate(typeof(NuevosPage), datos);
         }
 
@@ -113,7 +114,7 @@ namespace Findler
                 case 0:
                     url = "http://localhost/laravel/findler/public/courses";
                     title = "Novedades";
-                    datos = new string[2] { url, title };
+                    datos = new string[3] { url, title, "no" };
                     contenido.Navigate(typeof(NuevosPage), datos);
                     split.IsPaneOpen = !split.IsPaneOpen;
                     break;
@@ -121,8 +122,35 @@ namespace Findler
                 case 1:
                     url = "http://localhost/laravel/findler/public/trends";
                     title = "Tendencias";
-                    datos = new string[2] { url, title };
+                    datos = new string[3] { url, title, "no" };
                     contenido.Navigate(typeof(NuevosPage), datos);
+                    split.IsPaneOpen = !split.IsPaneOpen;
+                    break;
+
+                case 2:
+                    contenido.Navigate(typeof(CategoriesPage));
+                    split.IsPaneOpen = !split.IsPaneOpen;
+                    break;
+
+                case 3:
+                    ApplicationDataContainer ingreso = ApplicationData.Current.LocalSettings;
+                    string correo = ingreso.Values["user"] as string;
+                    url = "http://localhost/laravel/findler/public/favs/"+correo;
+                    title = "Favoritos";
+                    datos = new string[3] { url, title, "no" };
+                    contenido.Navigate(typeof(NuevosPage), datos);
+                    split.IsPaneOpen = !split.IsPaneOpen;
+                    break;
+
+                case 4:
+                    string texto = "Aceptamos todo tipo de mensajes de nuestros usuarios, consejos, sugerencias, felicitaciones, reclamos, quejas, etc. Dinos lo que desees, pero hazlo con respeto. Tus mensajes nos permiten crecer, dejanos una en nuestra web.";
+                    contenido.Navigate(typeof(AparecerPage), texto);
+                    split.IsPaneOpen = !split.IsPaneOpen;
+                    break;
+
+                case 5:
+                    string texto1 = "Si deseas que tu curso online aparezca en Findler debes diligenciar el formulario que se encuentra en nuestra web, tu curso sera evaluado y si consideramos que cumple todas nuestras politicas y restricciones, nos comunicaremos contigo.";
+                    contenido.Navigate(typeof(AparecerPage), texto1);
                     split.IsPaneOpen = !split.IsPaneOpen;
                     break;
 
@@ -132,67 +160,5 @@ namespace Findler
                     break;
             }
         }
-
-        //private ObservableCollection<Curso> data;
-        //public ObservableCollection<Curso> Data
-        //{
-        //    get
-        //    {
-        //        if(data == null)
-        //        {
-        //            data = new ObservableCollection<Curso>();
-        //            Curso c1 = new Curso()
-        //            {
-        //                Nombre = "Android Basico",
-        //                Lenguaje = "Java",
-        //                Framework = "AndroidStudio",
-        //                Duracion = "40 horas",
-        //                Nivel = "Principiante",
-        //                Requerimientos = "Bases en java",
-        //                Valor = "Gratis",
-        //                Certificado = "No",
-        //                Imagen = "http://1.bp.blogspot.com/-UGrENgc-ec8/VIJsFPD19aI/AAAAAAAABBk/ICFczO1O6mU/s1000/studio-logo.png",
-        //                Categoria = "Gratis"
-        //            };
-
-        //            Curso c2 = new Curso()
-        //            {
-        //                Nombre = "Ruby on Rails",
-        //                Lenguaje = "Ruby",
-        //                Framework = "Rails",
-        //                Duracion = "60 horas",
-        //                Nivel = "Avanzado",
-        //                Requerimientos = "Ruby basico",
-        //                Valor = "USD 99.99",
-        //                Certificado = "Si",
-        //                Imagen = "http://programacion.net/files/article/20151023121029_rubyrails.png",
-        //                Categoria = "Gratis"
-        //            };
-
-        //            Curso c3 = new Curso()
-        //            {
-        //                Nombre = "Desarrollo web",
-        //                Lenguaje = "PHP",
-        //                Framework = "Laravel",
-        //                Duracion = "60 horas",
-        //                Nivel = "Intermedio",
-        //                Requerimientos = "N/A",
-        //                Valor = "USD 39.99",
-        //                Certificado = "Si",
-        //                Imagen = "http://danielmlozano.com/wp-content/uploads/2016/01/laravel-2.jpg",
-        //                Categoria = "Pago"
-        //            };
-
-        //            data.Add(c1);
-        //            data.Add(c2);
-        //            data.Add(c3);
-        //        }
-        //        return data;
-        //    }
-        //    set
-        //    {
-        //        data = value;
-        //    }
-        //}
     }
 }

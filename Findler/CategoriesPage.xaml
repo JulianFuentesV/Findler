@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="Findler.CategoriesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Findler"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <TextBlock Text="Categorias" HorizontalAlignment="Center"
+                       Style="{StaticResource HeaderTextBlockStyle}"
+                       VerticalAlignment="Top"/>
+            <Rectangle Height="1" HorizontalAlignment="Stretch" Margin="0 0 0 20"
+                       Fill="#0091EA"/>
+            <ListBox x:Name="list" ItemsSource="{x:Bind Data}"
+                     SelectionChanged="seleccion" Background="#FFFFFF">
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -25,9 +26,12 @@ namespace Findler
     /// </summary>
     public sealed partial class ContentPage : Page
     {
+        HttpConnection con;
+
         public ContentPage()
         {
             this.InitializeComponent();
+            con = new HttpConnection();
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             SystemNavigationManager.GetForCurrentView().BackRequested += Main_BackRequested;
         }
@@ -35,7 +39,9 @@ namespace Findler
         private void Main_BackRequested(object sender, BackRequestedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            if (rootFrame.CanGoBack && e.Handled == false) { e.Handled = true; rootFrame.GoBack(); } }
+            if (rootFrame.CanGoBack && e.Handled == false) { e.Handled = true; rootFrame.GoBack();
+            }
+        }
 
         public Curso curso { get; set; }
 
@@ -44,6 +50,16 @@ namespace Findler
             Curso c = e.Parameter as Curso;
             curso = c;
 
+        }
+
+        private async void addFav(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer ingreso = ApplicationData.Current.LocalSettings;
+            string correo = ingreso.Values["user"] as string;
+            string nombreCurso = curso.Nombre;
+            string url = "http://localhost/laravel/findler/public/favs/"+correo+"/"+nombreCurso;
+            string rta = await con.requestByGet(url);
+            textRta.Text = rta;
         }
     }
 }
