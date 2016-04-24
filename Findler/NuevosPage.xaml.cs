@@ -57,9 +57,10 @@ namespace Findler
                 if (data == null)
                 {
                     data = new ObservableCollection<Curso>();
-                    if (json == null)
+                    
+                    if (json.Count == 0)
                     {
-                        aviso.Text = "No se han encontrado datos.";
+                        aviso.Text = "No se han encontrado favoritos.";
                     } else
                     {
                         foreach (JsonValue jsonValue in json)

@@ -74,8 +74,8 @@ namespace Findler
                     };
                     MenuItem opc5 = new MenuItem()
                     {
-                        Icon = "Setting",
-                        Label = "Configuracion"
+                        Icon = "Message",
+                        Label = "FeedBack"
                     };
                     MenuItem opc6 = new MenuItem()
                     {

@@ -39,7 +39,6 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate x:DataType="models:MenuItem">
                                 <StackPanel Orientation="Horizontal">
-                                    <!--<Rectangle Width="2" Height="40" Fill="Blue"/>-->
                                     <SymbolIcon Symbol="{x:Bind Icon}"
                                                 Width="40" Height="40"/>
                                     <TextBlock Text="{x:Bind Label}"

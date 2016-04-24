@@ -57,7 +57,16 @@ namespace Findler
             ApplicationDataContainer ingreso = ApplicationData.Current.LocalSettings;
             string correo = ingreso.Values["user"] as string;
             string nombreCurso = curso.Nombre;
-            string url = "http://localhost/laravel/findler/public/favs/"+correo+"/"+nombreCurso;
+            string url = "http://localhost/laravel/findler/public/favs/index/" + correo + "/" + nombreCurso;
+            string idFav = await con.requestByGet(url);
+            if (idFav == "null")
+            {
+                url = "http://localhost/laravel/findler/public/favs/store/" + correo + "/" + nombreCurso;
+            } else
+            {
+                url = "http://localhost/laravel/findler/public/favs/delete/" + idFav;
+            }
+            
             string rta = await con.requestByGet(url);
             textRta.Text = rta;
         }
