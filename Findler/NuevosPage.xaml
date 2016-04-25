@@ -17,7 +17,8 @@
                        Fill="#0091EA"/>
             <TextBlock x:Name="aviso" Style="{StaticResource CaptionTextBlockStyle}"
                        HorizontalAlignment="Center"/>
-            <GridView x:Name="list" ItemsSource="{x:Bind Data}" Padding="20 0 20 0" SelectionChanged="selected">
+            <GridView x:Name="list" ItemsSource="{x:Bind Data}" Padding="20 0 20 0"
+                      SelectionChanged="selected">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="models:Curso">
                         <StackPanel Width="220">
@@ -26,7 +27,7 @@
                                    Stretch="Uniform"/>
                             <TextBlock Text="{x:Bind Nombre}" Padding="20 0 0 0"
                                        Style="{StaticResource FlyoutPickerTitleTextBlockStyle}"/>
-                            
+
                             <TextBlock Text="{x:Bind Lenguaje}" Padding="20 0 0 0"
                                        Style="{StaticResource CaptionTextBlockStyle}"
                                        Foreground="DarkCyan"/>

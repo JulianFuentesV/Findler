@@ -21,7 +21,7 @@
                 <TextBlock Style="{StaticResource TitleTextBlockStyle}"
                            Text="{Binding Calificacion}"
                            Margin="4 0 10 0"/>
-                    <Button Click="addFav" Background="#FFFFFF">
+                    <Button Click="addFav" Background="#FFFFFF" Style="{StaticResource BtnSec}">
                         <Button.Content>
                             <SymbolIcon Symbol="Add" x:Name="add"/>
                         </Button.Content>

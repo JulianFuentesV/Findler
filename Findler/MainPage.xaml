@@ -17,11 +17,13 @@
                    DisplayMode="Overlay"
                    CompactPaneLength="40" Grid.Row="1">
             <SplitView.Content>
-                <StackPanel Background="#FFFFFF">
-                    <Button Width="40" Height="40" Click="clickMenu"
-                      Background="#FFFFFF" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"/>
-                    <Frame x:Name="contenido"/>
-                </StackPanel>
+                <ScrollViewer>
+                    <StackPanel Background="#FFFFFF">
+                        <Button Width="40" Height="40" Click="clickMenu" Style="{StaticResource BtnSec}"
+                                Background="#FFFFFF" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"/>
+                        <Frame x:Name="contenido"/>
+                    </StackPanel>
+                </ScrollViewer>
             </SplitView.Content>
             <SplitView.Pane>
                 <Grid>
@@ -31,7 +33,8 @@
                     </Grid.RowDefinitions>
                     <StackPanel Background="#FAFAFA" Orientation="Horizontal">
                         <Button Width="40" Height="40" Click="clickMenu" Background="#FFFFFF"
-                                FontFamily="Segoe MDL2 Assets" Content="&#xE700;"/>
+                                FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
+                                Style="{StaticResource BtnSec}"/>
                         <TextBlock Text="MENU" VerticalAlignment="Top" Margin="10"/>
                     </StackPanel>
                     <ListBox x:Name="list" Grid.Row="1" Background="#EFEFEF" ItemsSource="{x:Bind Menu}"
